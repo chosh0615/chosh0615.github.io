@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Flowchart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.6.7/go-debug.js"></script>
+    
+  </head>
+  <body>
+    <div id="myDiagramDiv" style="width:70%; height:100%; background-color: #DAE4E4; float:left">
+    </div>
+    <div style="width:30%; height:100%; background-color: #DAC4E4; float:left">
+      <h1>Action Information</h1>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="alterEgo">Job Type</label>
+          <input type="text" class="form-control" id="alterEgo">
+        </div>
+        <button type="submit" class="btn btn-default">Save</button>
+      </form>
+    </div>
+    <script>
+    var $ = go.GraphObject.make;
+    var myDiagram =
+      $(go.Diagram, "myDiagramDiv",
+        {
+          initialContentAlignment: go.Spot.Center, // center Diagram contents
+          "undoManager.isEnabled": true, // enable Ctrl-Z to undo and Ctrl-Y to redo
+          layout: $(go.TreeLayout, // specify a Diagram.layout that arranges trees
+                    { angle: 90, layerSpacing: 35 })
+        });
+
+    // the template we defined earlier
+    myDiagram.nodeTemplate =
+      $(go.Node, "Horizontal",
+        { background: "#99BBCC" },
+        $(go.Picture,
+          { margin: 10, width: 50, height: 50, background: "blue" },
+          new go.Binding("source")),
+        $(go.TextBlock, "Default Text",
+          { margin: 12, stroke: "white", font: "bold 16px sans-serif" },
+          new go.Binding("text", "name"))
+      );
+
+    var model = $(go.TreeModel);
+    model.nodeDataArray =
+    [
+      { key: "1",              name: "Job 1",   source: "img/job.jpg" },
+      { key: "2", parent: "1", name: "Job 2",    source: "img/job.jpg" },
+      { key: "3", parent: "1", name: "Job 3",   source: "img/job.jpg" },
+      { key: "4", parent: "3", name: "Job 4", source: "img/job.jpg" },
+      { key: "5", parent: "3", name: "Job 5",     source: "img/job.jpg" },
+      { key: "6", parent: "2", name: "Job 6", source: "img/job.jpg" }
+    ];
+    myDiagram.model = model;
+    </script>
+  </body>
+</html>
+
