@@ -1,13 +1,14 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HeroesComponent } from './heroes.component';
-import { JobComponent }	from './job.component';
+import { HeroesComponent } from '../hero/heroes.component';
+import { JobComponent }	from '../job/job.component';
+import { JobsComponent } from '../jobs/jobs.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/job',
+    redirectTo: '/jobs',
     pathMatch: 'full'
   },
   {
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
   {
     path: 'job',
     component: JobComponent
+  },
+  {
+    path: 'jobs',
+    component: JobsComponent
   }
 ];
 

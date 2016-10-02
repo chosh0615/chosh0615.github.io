@@ -30,7 +30,11 @@ export class FlowchartComponent {
 	          initialContentAlignment: go.Spot.Center, // center Diagram contents
 	          "undoManager.isEnabled": true, // enable Ctrl-Z to undo and Ctrl-Y to redo
 	          layout: this.go(go.TreeLayout, // specify a Diagram.layout that arranges trees
-	                    { angle: 90, layerSpacing: 35 })
+	                    { angle: 90, layerSpacing: 35 }),
+	          allowDelete: false,
+	          allowCopy: false,
+	          allowGroup: false,
+	          allowUngroup: false
 	        });
 	
 	    // the template we defined earlier

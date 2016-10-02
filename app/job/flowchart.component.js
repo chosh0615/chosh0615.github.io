@@ -25,7 +25,11 @@ var FlowchartComponent = (function () {
             initialContentAlignment: go.Spot.Center,
             "undoManager.isEnabled": true,
             layout: this.go(go.TreeLayout, // specify a Diagram.layout that arranges trees
-            { angle: 90, layerSpacing: 35 })
+            { angle: 90, layerSpacing: 35 }),
+            allowDelete: false,
+            allowCopy: false,
+            allowGroup: false,
+            allowUngroup: false
         });
         // the template we defined earlier
         myDiagram.nodeTemplate =

@@ -12,18 +12,25 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_routing_1 = require('./app.routing');
 var app_component_1 = require('./app.component');
-var heroes_component_1 = require('./heroes.component');
-var loop_back_component_1 = require('./loop-back.component');
-var flowchart_component_1 = require('./flowchart.component');
-var properties_component_1 = require('./properties.component');
-var job_component_1 = require('./job.component');
+var heroes_component_1 = require('../hero/heroes.component');
+var loop_back_component_1 = require('../hero/loop-back.component');
+var flowchart_component_1 = require('../job/flowchart.component');
+var properties_component_1 = require('../job/properties.component');
+var job_component_1 = require('../job/job.component');
+var jobs_component_1 = require('../jobs/jobs.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent, heroes_component_1.HeroesComponent, loop_back_component_1.LoopbackComponent, flowchart_component_1.FlowchartComponent, properties_component_1.PropertiesComponent, job_component_1.JobComponent],
+            declarations: [app_component_1.AppComponent,
+                heroes_component_1.HeroesComponent,
+                loop_back_component_1.LoopbackComponent,
+                flowchart_component_1.FlowchartComponent,
+                properties_component_1.PropertiesComponent,
+                job_component_1.JobComponent,
+                jobs_component_1.JobsComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

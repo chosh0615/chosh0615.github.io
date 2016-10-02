@@ -9,18 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Sample Application';
+var JobService = (function () {
+    function JobService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n  \t<h1>{{title}}</h1>\n\t<nav>\n\t\t<a routerLink=\"/heroes\">Heroes</a>\n\t\t<a routerLink=\"/job\">Job</a>\n\t</nav>\n\t<router-outlet></router-outlet>\n  "
-        }), 
+    JobService.prototype.getJobs = function () {
+        return [{ jobId: '111', name: 'job 1' },
+            { jobId: '222', name: 'job 2' }
+        ];
+    };
+    JobService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], JobService);
+    return JobService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.JobService = JobService;
+//# sourceMappingURL=job.service.js.map

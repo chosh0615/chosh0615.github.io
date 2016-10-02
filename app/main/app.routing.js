@@ -1,11 +1,12 @@
 "use strict";
 var router_1 = require('@angular/router');
-var heroes_component_1 = require('./heroes.component');
-var job_component_1 = require('./job.component');
+var heroes_component_1 = require('../hero/heroes.component');
+var job_component_1 = require('../job/job.component');
+var jobs_component_1 = require('../jobs/jobs.component');
 var appRoutes = [
     {
         path: '',
-        redirectTo: '/job',
+        redirectTo: '/jobs',
         pathMatch: 'full'
     },
     {
@@ -15,6 +16,10 @@ var appRoutes = [
     {
         path: 'job',
         component: job_component_1.JobComponent
+    },
+    {
+        path: 'jobs',
+        component: jobs_component_1.JobsComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
