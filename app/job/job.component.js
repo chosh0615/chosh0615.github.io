@@ -9,20 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var core_2 = require('@angular/core');
+var flowchart_component_1 = require('./flowchart.component');
 var JobComponent = (function () {
     function JobComponent() {
-        this.selectedAction = { actionId: "" };
+        this.selectedAction = {};
     }
     JobComponent.prototype.onObjectSelected = function (data) {
         this.selectedAction = data;
     };
+    JobComponent.prototype.onObjectUnselected = function (data) {
+        this.selectedAction = {};
+    };
+    JobComponent.prototype.onAddClicked = function () {
+        this.flowchartComponent.addAction();
+    };
+    JobComponent.prototype.onRemoveClicked = function () {
+        this.flowchartComponent.removeAction();
+    };
     JobComponent.prototype.onSave = function (value) {
         alert(value);
     };
+    __decorate([
+        core_2.ViewChild(flowchart_component_1.FlowchartComponent), 
+        __metadata('design:type', flowchart_component_1.FlowchartComponent)
+    ], JobComponent.prototype, "flowchartComponent", void 0);
     JobComponent = __decorate([
         core_1.Component({
             selector: 'job',
-            template: "\n    <flowchart (selected)=\"onObjectSelected($event)\"></flowchart>\n    <properties (propertySave)=\"onSave($event)\" [selectedAction]=\"selectedAction\"></properties>\n  "
+            template: "\n  \t<div>\n  \t\t<actions [selectedAction]=\"selectedAction\"\n  \t\t\t\t(addClicked)=\"onAddClicked()\"\n  \t\t\t\t(removeClicked)=\"onRemoveClicked()\"></actions>\n  \t</div>\n  \t<div>\n\t    <flowchart (selected)=\"onObjectSelected($event)\"\n\t    \t\t\t(unselected)=\"onObjectUnselected($event)\"></flowchart>\n\t    <properties (propertySave)=\"onSave($event)\" \n\t    \t\t\t[selectedAction]=\"selectedAction\"></properties>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], JobComponent);

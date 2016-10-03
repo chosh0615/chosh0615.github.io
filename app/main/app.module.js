@@ -16,6 +16,7 @@ var heroes_component_1 = require('../hero/heroes.component');
 var loop_back_component_1 = require('../hero/loop-back.component');
 var flowchart_component_1 = require('../job/flowchart.component');
 var properties_component_1 = require('../job/properties.component');
+var actions_component_1 = require('../job/actions.component');
 var job_component_1 = require('../job/job.component');
 var jobs_component_1 = require('../jobs/jobs.component');
 var AppModule = (function () {
@@ -29,6 +30,7 @@ var AppModule = (function () {
                 loop_back_component_1.LoopbackComponent,
                 flowchart_component_1.FlowchartComponent,
                 properties_component_1.PropertiesComponent,
+                actions_component_1.ActionsComponent,
                 job_component_1.JobComponent,
                 jobs_component_1.JobsComponent],
             bootstrap: [app_component_1.AppComponent]
