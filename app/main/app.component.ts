@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   template: `
   	<h1>{{title}}</h1>
 	<nav>
-		<a routerLink="/heroes">Heroes</a>
+		<!--<a routerLink="/heroes">Heroes</a>-->
+		Temporary links: 
 		<a routerLink="/jobs">Jobs</a>
 		<a routerLink="/job">Job</a>
 	</nav>
@@ -12,5 +13,5 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {
-  title = 'Sample Application';
+  title = 'DPD';
 }

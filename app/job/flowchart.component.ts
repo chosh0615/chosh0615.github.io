@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
+import { AfterViewInit } from '@angular/core';
 
 declare var go : any;
 
 @Component({
   selector: 'flowchart',
   template: `
-    <div id="myDiagramDiv" style="width:70%; height:80%; background-color: #DAE4E4; float:left">
+    <div id="myDiagramDiv" style="width:50%; height:80%; background-color: #EEEEEE; float:left">
     </div>
   `
 })
-export class FlowchartComponent {
+export class FlowchartComponent implements AfterViewInit {
 
   goObj : any;
   myDiagram;
-  selectedAction = {};
+  selectedAction : any = {};
   actionNumbers: number = 1;
 
   @Output() selected: EventEmitter<any> = new EventEmitter();
@@ -38,7 +39,7 @@ export class FlowchartComponent {
 		    this.goObj(go.Diagram, "myDiagramDiv",
 		        {
 		          initialContentAlignment: go.Spot.Center, // center Diagram contents
-		          "undoManager.isEnabled": true, // enable Ctrl-Z to undo and Ctrl-Y to redo
+		          "undoManager.isEnabled": false, // enable Ctrl-Z to undo and Ctrl-Y to redo
 		          layout: this.goObj(go.TreeLayout, // specify a Diagram.layout that arranges trees
 		                    { angle: 90, layerSpacing: 35 }),
 		          allowDelete: false,

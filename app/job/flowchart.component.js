@@ -32,7 +32,7 @@ var FlowchartComponent = (function () {
         this.myDiagram =
             this.goObj(go.Diagram, "myDiagramDiv", {
                 initialContentAlignment: go.Spot.Center,
-                "undoManager.isEnabled": true,
+                "undoManager.isEnabled": false,
                 layout: this.goObj(go.TreeLayout, // specify a Diagram.layout that arranges trees
                 { angle: 90, layerSpacing: 35 }),
                 allowDelete: false,
@@ -124,7 +124,7 @@ var FlowchartComponent = (function () {
     FlowchartComponent = __decorate([
         core_1.Component({
             selector: 'flowchart',
-            template: "\n    <div id=\"myDiagramDiv\" style=\"width:70%; height:80%; background-color: #DAE4E4; float:left\">\n    </div>\n  "
+            template: "\n    <div id=\"myDiagramDiv\" style=\"width:50%; height:80%; background-color: #EEEEEE; float:left\">\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], FlowchartComponent);

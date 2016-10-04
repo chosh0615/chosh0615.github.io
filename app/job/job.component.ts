@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 
-import { FlowchartComponent }	from './flowchart.component';
+import { FlowchartComponent }		from './flowchart.component';
 import { PropertiesComponent }      from './properties.component';
+import { PropertyService }			from '../service/property.service';
 
 @Component({
   selector: 'job',
@@ -18,7 +19,8 @@ import { PropertiesComponent }      from './properties.component';
 	    <properties (propertySave)="onSave($event)" 
 	    			[selectedAction]="selectedAction"></properties>
     </div>
-  `
+  `,
+  providers: [PropertyService]
 })
 export class JobComponent {
 	selectedAction : Object = {};

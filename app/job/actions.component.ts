@@ -6,8 +6,11 @@ import { Input } from '@angular/core';
 @Component({
   selector: 'actions',
   template: `
-    <input type="button" value="Add" class="btn" *ngIf="selectedAction.actionId != undefined" (click)="onAddClick()"/>
-    <input type="button" value="Remove" class="btn" *ngIf="selectedAction.actionId != undefined" (click)="onRemoveClick()"/>
+    <input type="button" value="Add action" class="btn btn-secondary" *ngIf="selectedAction.actionId != undefined" (click)="onAddClick()"/>
+    <input type="button" value="Remove action" class="btn btn-secondary" *ngIf="selectedAction.actionId != undefined" (click)="onRemoveClick()"/>
+    <input type="button" value="Save" class="btn btn-primary" />
+    <input type="button" value="Execute" class="btn btn-primary" />
+    <input type="button" value="Schedule" class="btn btn-primary" />
   `
 })
 export class ActionsComponent {
@@ -23,7 +26,7 @@ export class ActionsComponent {
   }
 
   onRemoveClick() {
-    
+
     this.removeClicked.emit();
   }
 }

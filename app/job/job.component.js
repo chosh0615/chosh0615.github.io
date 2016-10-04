@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var flowchart_component_1 = require('./flowchart.component');
+var property_service_1 = require('../service/property.service');
 var JobComponent = (function () {
     function JobComponent() {
         this.selectedAction = {};
@@ -37,7 +38,8 @@ var JobComponent = (function () {
     JobComponent = __decorate([
         core_1.Component({
             selector: 'job',
-            template: "\n  \t<div>\n  \t\t<actions [selectedAction]=\"selectedAction\"\n  \t\t\t\t(addClicked)=\"onAddClicked()\"\n  \t\t\t\t(removeClicked)=\"onRemoveClicked()\"></actions>\n  \t</div>\n  \t<div>\n\t    <flowchart (selected)=\"onObjectSelected($event)\"\n\t    \t\t\t(unselected)=\"onObjectUnselected($event)\"></flowchart>\n\t    <properties (propertySave)=\"onSave($event)\" \n\t    \t\t\t[selectedAction]=\"selectedAction\"></properties>\n    </div>\n  "
+            template: "\n  \t<div>\n  \t\t<actions [selectedAction]=\"selectedAction\"\n  \t\t\t\t(addClicked)=\"onAddClicked()\"\n  \t\t\t\t(removeClicked)=\"onRemoveClicked()\"></actions>\n  \t</div>\n  \t<div>\n\t    <flowchart (selected)=\"onObjectSelected($event)\"\n\t    \t\t\t(unselected)=\"onObjectUnselected($event)\"></flowchart>\n\t    <properties (propertySave)=\"onSave($event)\" \n\t    \t\t\t[selectedAction]=\"selectedAction\"></properties>\n    </div>\n  ",
+            providers: [property_service_1.PropertyService]
         }), 
         __metadata('design:paramtypes', [])
     ], JobComponent);

@@ -38,7 +38,7 @@ var ActionsComponent = (function () {
     ActionsComponent = __decorate([
         core_1.Component({
             selector: 'actions',
-            template: "\n    <input type=\"button\" value=\"Add\" class=\"btn\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onAddClick()\"/>\n    <input type=\"button\" value=\"Remove\" class=\"btn\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onRemoveClick()\"/>\n  "
+            template: "\n    <input type=\"button\" value=\"Add action\" class=\"btn btn-secondary\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onAddClick()\"/>\n    <input type=\"button\" value=\"Remove action\" class=\"btn btn-secondary\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onRemoveClick()\"/>\n    <input type=\"button\" value=\"Save\" class=\"btn btn-primary\" />\n    <input type=\"button\" value=\"Execute\" class=\"btn btn-primary\" />\n    <input type=\"button\" value=\"Schedule\" class=\"btn btn-primary\" />\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ActionsComponent);
