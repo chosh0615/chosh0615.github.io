@@ -27,7 +27,7 @@ import { Property } from        '../model/property';
                 <div class="form-group row" *ngFor="let prop of sourceProperties">
                     <label for="name" class="col-xs-2 col-form-label">{{ prop.name }}</label>
                     <div class="col-xs-10">
-                        <input type="text" class="form-control" id="name" value="{{ prop.defaultValue }}" />
+                        <input type="text" class="form-control" id="name" value="{{ prop.defaultValue }}" placeholder="{{ prop.placeholder }}"/>
                     </div>
                 </div>
 
