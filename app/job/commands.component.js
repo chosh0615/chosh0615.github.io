@@ -12,37 +12,37 @@ var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var core_3 = require('@angular/core');
 var core_4 = require('@angular/core');
-var ActionsComponent = (function () {
-    function ActionsComponent() {
+var CommandsComponent = (function () {
+    function CommandsComponent() {
         this.addClicked = new core_2.EventEmitter();
         this.removeClicked = new core_2.EventEmitter();
     }
-    ActionsComponent.prototype.onAddClick = function () {
+    CommandsComponent.prototype.onAddClick = function () {
         this.addClicked.emit();
     };
-    ActionsComponent.prototype.onRemoveClick = function () {
+    CommandsComponent.prototype.onRemoveClick = function () {
         this.removeClicked.emit();
     };
     __decorate([
         core_4.Input(), 
         __metadata('design:type', Object)
-    ], ActionsComponent.prototype, "selectedAction", void 0);
+    ], CommandsComponent.prototype, "selectedAction", void 0);
     __decorate([
         core_3.Output(), 
         __metadata('design:type', core_2.EventEmitter)
-    ], ActionsComponent.prototype, "addClicked", void 0);
+    ], CommandsComponent.prototype, "addClicked", void 0);
     __decorate([
         core_3.Output(), 
         __metadata('design:type', core_2.EventEmitter)
-    ], ActionsComponent.prototype, "removeClicked", void 0);
-    ActionsComponent = __decorate([
+    ], CommandsComponent.prototype, "removeClicked", void 0);
+    CommandsComponent = __decorate([
         core_1.Component({
-            selector: 'actions',
+            selector: 'commands',
             template: "\n    <input type=\"button\" value=\"Add action\" class=\"btn btn-secondary\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onAddClick()\"/>\n    <input type=\"button\" value=\"Remove action\" class=\"btn btn-secondary\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onRemoveClick()\"/>\n    <input type=\"button\" value=\"Save\" class=\"btn btn-primary\" />\n    <input type=\"button\" value=\"Execute\" class=\"btn btn-primary\" />\n    <input type=\"button\" value=\"Schedule\" class=\"btn btn-primary\" />\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], ActionsComponent);
-    return ActionsComponent;
+    ], CommandsComponent);
+    return CommandsComponent;
 }());
-exports.ActionsComponent = ActionsComponent;
-//# sourceMappingURL=actions.component.js.map
+exports.CommandsComponent = CommandsComponent;
+//# sourceMappingURL=commands.component.js.map

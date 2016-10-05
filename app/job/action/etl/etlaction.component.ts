@@ -3,14 +3,14 @@ import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { Input } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { PropertyService } from '../service/property.service';
-import { Construct } from       '../model/construct';
-import { Property } from        '../model/property';
+import { PropertyService } from '../../../service/property.service';
+import { Construct } from       '../../../model/construct';
+import { Property } from        '../../../model/property';
 
 @Component({
-    selector: 'properties',
+    selector: 'etlaction',
     template: `
-        <div style="width:50%; height:80%; background-color: #F7F7F7; float:left; display:table">
+        <div style="width:100%; height:100%; background-color: #F7F7F7; display:table">
             <div style="height:0px; display:table-row;">
                 <h3>Action configuration</h3>
             </div>
@@ -49,7 +49,7 @@ import { Property } from        '../model/property';
         </div>
         `
 })
-export class PropertiesComponent implements OnInit {
+export class EtlActionComponent implements OnInit {
 	@Output() propertySave: EventEmitter<String> = new EventEmitter<String>();
 
 	@Input() selectedAction;

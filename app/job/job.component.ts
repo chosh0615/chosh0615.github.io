@@ -2,22 +2,22 @@ import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 
 import { FlowchartComponent }		from './flowchart.component';
-import { PropertiesComponent }      from './properties.component';
+import { ActionComponent }	      from './action.component';
 import { PropertyService }			from '../service/property.service';
 
 @Component({
   selector: 'job',
   template: `
   	<div>
-  		<actions [selectedAction]="selectedAction"
+  		<commands [selectedAction]="selectedAction"
   				(addClicked)="onAddClicked()"
-  				(removeClicked)="onRemoveClicked()"></actions>
+  				(removeClicked)="onRemoveClicked()"></commands>
   	</div>
   	<div>
 	    <flowchart (selected)="onObjectSelected($event)"
 	    			(unselected)="onObjectUnselected($event)"></flowchart>
-	    <properties (propertySave)="onSave($event)" 
-	    			[selectedAction]="selectedAction"></properties>
+	    <action (actionSave)="onSave($event)" 
+	    			[selectedAction]="selectedAction"></action>
     </div>
   `,
   providers: [PropertyService]

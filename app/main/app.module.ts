@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from '../hero/heroes.component';
 import { LoopbackComponent } from '../hero/loop-back.component';
 import { FlowchartComponent } from '../job/flowchart.component';
-import { PropertiesComponent } from '../job/properties.component';
-import { ActionsComponent } from '../job/actions.component';
+import { ActionComponent } from '../job/action.component';
+import { EtlActionComponent } from '../job/action/etl/etlaction.component';
+import { CommandsComponent } from '../job/commands.component';
 import { JobComponent } from '../job/job.component';
 import { JobsComponent } from '../jobs/jobs.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
@@ -17,8 +18,9 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
   					HeroesComponent, 
   					LoopbackComponent, 
   					FlowchartComponent, 
-  					PropertiesComponent, 
-  					ActionsComponent,
+  					ActionComponent, 
+            EtlActionComponent,
+  					CommandsComponent,
             DashboardComponent,
   					JobComponent, 
   					JobsComponent ],

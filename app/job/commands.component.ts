@@ -4,7 +4,7 @@ import { Output } from '@angular/core';
 import { Input } from '@angular/core';
 
 @Component({
-  selector: 'actions',
+  selector: 'commands',
   template: `
     <input type="button" value="Add action" class="btn btn-secondary" *ngIf="selectedAction.actionId != undefined" (click)="onAddClick()"/>
     <input type="button" value="Remove action" class="btn btn-secondary" *ngIf="selectedAction.actionId != undefined" (click)="onRemoveClick()"/>
@@ -13,7 +13,7 @@ import { Input } from '@angular/core';
     <input type="button" value="Schedule" class="btn btn-primary" />
   `
 })
-export class ActionsComponent {
+export class CommandsComponent {
 
   @Input() selectedAction;
   @Output() addClicked : EventEmitter<any> = new EventEmitter();
