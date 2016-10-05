@@ -19,6 +19,7 @@ var properties_component_1 = require('../job/properties.component');
 var actions_component_1 = require('../job/actions.component');
 var job_component_1 = require('../job/job.component');
 var jobs_component_1 = require('../jobs/jobs.component');
+var dashboard_component_1 = require('../dashboard/dashboard.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,6 +32,7 @@ var AppModule = (function () {
                 flowchart_component_1.FlowchartComponent,
                 properties_component_1.PropertiesComponent,
                 actions_component_1.ActionsComponent,
+                dashboard_component_1.DashboardComponent,
                 job_component_1.JobComponent,
                 jobs_component_1.JobsComponent],
             bootstrap: [app_component_1.AppComponent]

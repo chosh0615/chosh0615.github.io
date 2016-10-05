@@ -9,6 +9,7 @@ import { PropertiesComponent } from '../job/properties.component';
 import { ActionsComponent } from '../job/actions.component';
 import { JobComponent } from '../job/job.component';
 import { JobsComponent } from '../jobs/jobs.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 @NgModule({
   imports:      [ BrowserModule, routing ],
@@ -18,6 +19,7 @@ import { JobsComponent } from '../jobs/jobs.component';
   					FlowchartComponent, 
   					PropertiesComponent, 
   					ActionsComponent,
+            DashboardComponent,
   					JobComponent, 
   					JobsComponent ],
   bootstrap:    [ AppComponent ]

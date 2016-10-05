@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 	<nav>
 		<!--<a routerLink="/heroes">Heroes</a>-->
 		Temporary links: 
+		<a routerLink="/dashboard">Dashboard</a>
 		<a routerLink="/jobs">Jobs</a>
 		<a routerLink="/job">Job</a>
 	</nav>

@@ -3,15 +3,20 @@ var router_1 = require('@angular/router');
 var heroes_component_1 = require('../hero/heroes.component');
 var job_component_1 = require('../job/job.component');
 var jobs_component_1 = require('../jobs/jobs.component');
+var dashboard_component_1 = require('../dashboard/dashboard.component');
 var appRoutes = [
     {
         path: '',
-        redirectTo: '/jobs',
+        redirectTo: '/dashboard',
         pathMatch: 'full'
     },
     {
         path: 'heroes',
         component: heroes_component_1.HeroesComponent
+    },
+    {
+        path: 'dashboard',
+        component: dashboard_component_1.DashboardComponent
     },
     {
         path: 'job',
