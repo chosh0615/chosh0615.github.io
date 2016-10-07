@@ -7,8 +7,8 @@ export class PropertyService {
 	
 	getSources() : Construct[] {
 		return [
-				new Construct("com.sean.source.HdfsSource", "HDFS Source"),
-				new Construct("com.sean.source.FtpSource", "FTP Source")
+				new Construct("com.sean.source.HdfsSource", "HDFS Source", []),
+				new Construct("com.sean.source.FtpSource", "FTP Source", [])
 				];
 	}
 

@@ -1,8 +1,9 @@
 "use strict";
 var Job = (function () {
-    function Job(jobId, name) {
+    function Job(jobId, name, actions) {
         this.jobId = jobId;
         this.name = name;
+        this.actions = actions;
     }
     return Job;
 }());

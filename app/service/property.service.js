@@ -16,8 +16,8 @@ var PropertyService = (function () {
     }
     PropertyService.prototype.getSources = function () {
         return [
-            new construct_1.Construct("com.sean.source.HdfsSource", "HDFS Source"),
-            new construct_1.Construct("com.sean.source.FtpSource", "FTP Source")
+            new construct_1.Construct("com.sean.source.HdfsSource", "HDFS Source", []),
+            new construct_1.Construct("com.sean.source.FtpSource", "FTP Source", [])
         ];
     };
     PropertyService.prototype.getProperties = function (className) {

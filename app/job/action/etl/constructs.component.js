@@ -9,17 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var JobService = (function () {
-    function JobService() {
+var ConstructsComponent = (function () {
+    function ConstructsComponent() {
     }
-    JobService.prototype.getJobs = function () {
-        return [];
+    ConstructsComponent.prototype.ngOnInit = function () {
     };
-    JobService = __decorate([
-        core_1.Injectable(), 
+    ConstructsComponent = __decorate([
+        core_1.Component({
+            selector: 'constructs',
+            template: "\n        <div>\n            Constructs...\n        </div>\n        "
+        }), 
         __metadata('design:paramtypes', [])
-    ], JobService);
-    return JobService;
+    ], ConstructsComponent);
+    return ConstructsComponent;
 }());
-exports.JobService = JobService;
-//# sourceMappingURL=job.service.js.map
+exports.ConstructsComponent = ConstructsComponent;
+//# sourceMappingURL=constructs.component.js.map

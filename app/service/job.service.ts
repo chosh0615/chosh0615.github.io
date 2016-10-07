@@ -5,8 +5,6 @@ import { Job } from '../model/job';
 export class JobService {
 	
   getJobs() : Job[] {
-    return [{jobId: '111', name: 'job 1'},
-            {jobId: '222', name: 'job 2'}
-            ];
+    return [];
   }
 }
