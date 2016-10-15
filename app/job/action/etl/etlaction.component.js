@@ -12,12 +12,10 @@ var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var core_3 = require('@angular/core');
 var core_4 = require('@angular/core');
-var construct_1 = require('../../../model/construct');
 var action_1 = require('../../../model/action');
 var EtlActionComponent = (function () {
     function EtlActionComponent() {
         this.propertySave = new core_2.EventEmitter();
-        this.selectedConstruct = new construct_1.Construct("", "", []);
     }
     __decorate([
         core_3.Output(), 
@@ -30,7 +28,7 @@ var EtlActionComponent = (function () {
     EtlActionComponent = __decorate([
         core_1.Component({
             selector: 'etlaction',
-            template: "\n        <div style=\"width:100%; height:100%; background-color: #F7F7F7; display:table\">\n            <div style=\"height:0px; display:table-row;\">\n                <h3>Action configuration</h3>\n            </div>\n            <div style=\"width:100%; display:table-row;\">\n                <configurations [construct]=\"selectedConstruct\" style=\"width:60%; height:100%; overflow-y:scroll; float:left;\">\n                </configurations>\n                <constructs style=\"width:40%; height:100%; background-color:#888888; overflow-y:scroll; float:left;\">\n                </constructs>\n            </div>\n\n            <div style=\"width:100%;height:35%; display:table-row; background-color:#909090;\">\n                sampling area...\n            </div>\n        </div>\n        "
+            template: "\n        <div style=\"width:100%; height:100%; background-color: #F7F7F7; display:table\">\n            <div style=\"height:0px; display:table-row;\">\n                <h3>Action configuration</h3>\n            </div>\n            <div style=\"width:100%; display:table-row;\">\n                <configurations style=\"width:100%; height:100%; overflow-y:scroll; float:left;\">\n                </configurations>\n                <!--\n                <constructs style=\"width:40%; height:100%; background-color:#888888; overflow-y:scroll; float:left;\">\n                </constructs>\n                -->\n            </div>\n\n            <div style=\"width:100%;height:35%; display:table-row; background-color:#909090;\">\n                sampling area...\n            </div>\n        </div>\n        "
         }), 
         __metadata('design:paramtypes', [])
     ], EtlActionComponent);

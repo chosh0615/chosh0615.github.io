@@ -16,10 +16,12 @@ import { Action }               from '../../../model/action';
                 <h3>Action configuration</h3>
             </div>
             <div style="width:100%; display:table-row;">
-                <configurations [construct]="selectedConstruct" style="width:60%; height:100%; overflow-y:scroll; float:left;">
+                <configurations style="width:100%; height:100%; overflow-y:scroll; float:left;">
                 </configurations>
+                <!--
                 <constructs style="width:40%; height:100%; background-color:#888888; overflow-y:scroll; float:left;">
                 </constructs>
+                -->
             </div>
 
             <div style="width:100%;height:35%; display:table-row; background-color:#909090;">
@@ -33,9 +35,7 @@ export class EtlActionComponent {
 
 	@Input() selectedAction : Action;
 
-    selectedConstruct : Construct;
-
     constructor() {
-        this.selectedConstruct = new Construct("", "", []);
+        
     }
 }

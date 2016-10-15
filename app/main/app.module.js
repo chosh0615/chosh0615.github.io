@@ -19,7 +19,7 @@ var action_component_1 = require('../job/action.component');
 var etlaction_component_1 = require('../job/action/etl/etlaction.component');
 var configurations_component_1 = require('../job/action/etl/configurations.component');
 var property_component_1 = require('../job/action/etl/property.component');
-var constructs_component_1 = require('../job/action/etl/constructs.component');
+var construct_component_1 = require('../job/action/etl/construct.component');
 var commands_component_1 = require('../job/commands.component');
 var job_component_1 = require('../job/job.component');
 var jobs_component_1 = require('../jobs/jobs.component');
@@ -38,7 +38,7 @@ var AppModule = (function () {
                 etlaction_component_1.EtlActionComponent,
                 configurations_component_1.ConfigurationsComponent,
                 property_component_1.PropertyComponent,
-                constructs_component_1.ConstructsComponent,
+                construct_component_1.ConstructComponent,
                 commands_component_1.CommandsComponent,
                 dashboard_component_1.DashboardComponent,
                 job_component_1.JobComponent,

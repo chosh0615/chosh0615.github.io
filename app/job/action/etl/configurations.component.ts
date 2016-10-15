@@ -12,20 +12,10 @@ import { Property } from        '../../../model/property';
     template: `
 	    <div>
             <form>
-                <div class="form-group row">
-                    <label for="sourceType" class="col-xs-2 col-form-label">Source type</label>
-                    <div class="col-xs-10">
-                        <select id="sourceType" class="form-control" (change)="onSourceTypeChange($event)">
-                            <option value="">--Select--</option>
-                            <option *ngFor="let sConst of sourceConstructs" value="{{ sConst.className }}">{{ sConst.displayName }}</option>
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="form-group row" *ngFor="let prop of constructProperties">
-                    <property [property]="prop"></property>
-                </div>
+                <input type="button" value="Add converter" class="btn btn-secondary" />
+                <input type="button" value="Remove converter" class="btn btn-secondary" />
+                <construct *ngFor="let construct of constructs" [construct]="construct">
+                </construct>
 
                 <button type="button" class="btn btn-default" (click)="onSave()">Save</button>
             </form>
@@ -36,20 +26,14 @@ export class ConfigurationsComponent implements OnInit {
 
 	@Output() propertySave: EventEmitter<String> = new EventEmitter<String>();
 
-	@Input() construct : Construct;
-
-	constructProperties : Property[];
-    sourceConstructs: Construct[];
+    constructs: Construct[];
 
     constructor(private propertyService: PropertyService) {
     }
 
     ngOnInit() {
-        this.sourceConstructs = this.propertyService.getSources();
-    }
-
-    onSourceTypeChange($event) {
-        this.constructProperties = this.propertyService.getProperties($event.target.value);
+        this.constructs = [new Construct("Source", "test", "tes", []),
+                      new Construct("Writer", "test", "test", [])];
     }
 
 	onSave() {

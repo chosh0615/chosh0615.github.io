@@ -16,8 +16,13 @@ var PropertyService = (function () {
     }
     PropertyService.prototype.getSources = function () {
         return [
-            new construct_1.Construct("com.sean.source.HdfsSource", "HDFS Source", []),
-            new construct_1.Construct("com.sean.source.FtpSource", "FTP Source", [])
+            new construct_1.Construct("Source", "com.sean.source.HdfsSource", "HDFS Source", []),
+            new construct_1.Construct("Source", "com.sean.source.FtpSource", "FTP Source", [])
+        ];
+    };
+    PropertyService.prototype.getWriters = function () {
+        return [
+            new construct_1.Construct("Writer", "com.sean.writer.HdfsWriter", "Import Writer", [])
         ];
     };
     PropertyService.prototype.getProperties = function (className) {
@@ -30,11 +35,16 @@ var PropertyService = (function () {
                 new property_1.Property("extract.namespace", "", "sample", true),
                 new property_1.Property("source.fs.uri", "", "hdfs://", true)
             ];
-        else
+        else if (className == "com.sean.source.FtpSource")
             return [
                 new property_1.Property("source.class", "com.sean.source.FtpSource", "", false),
                 new property_1.Property("extract.namespace", "", "sample", true),
                 new property_1.Property("extract.files.directory", "", "/path/", true)
+            ];
+        else
+            return [
+                new property_1.Property("writer.class", "com.sean.writer.HdfsSource", "", false),
+                new property_1.Property("name", "", "sample", true)
             ];
     };
     PropertyService = __decorate([
