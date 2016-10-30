@@ -11,6 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var core_3 = require('@angular/core');
+var core_4 = require('@angular/core');
+var actioncontainer_1 = require('../model/actioncontainer');
+var etlaction_1 = require('../model/etlaction');
 var FlowchartComponent = (function () {
     function FlowchartComponent() {
         this.selectedAction = {};
@@ -26,7 +29,7 @@ var FlowchartComponent = (function () {
         this.selectedAction = {};
         this.unselected.emit();
     };
-    FlowchartComponent.prototype.ngAfterViewInit = function () {
+    FlowchartComponent.prototype.ngOnInit = function () {
         var myself = this;
         this.goObj = go.GraphObject.make;
         this.myDiagram =
@@ -60,10 +63,13 @@ var FlowchartComponent = (function () {
             { font: "Bold 12pt Sans-Serif" }, new go.Binding("text", "name")), this.goObj(go.Placeholder, // represents area for all member parts
             { padding: 5, background: "white" })));
         var model = this.goObj(go.TreeModel);
-        model.nodeDataArray =
-            [
-                { key: "1", name: "Action 1", actionId: "action001", source: "img/job.jpg" }
-            ];
+        model.nodeDataArray = this.actionContainerArray;
+        /*
+        [
+          new ActionContainer('1', "" , "New Action", "Action001", "img/job.jpg")
+          //{ key: "1",              name: "Action 1", actionId:"action001",   source: "img/job.jpg" }
+        ];
+        */
         this.myDiagram.model = model;
         /*
         model.startTransaction("change");
@@ -78,7 +84,8 @@ var FlowchartComponent = (function () {
         var model = this.myDiagram.model;
         model.startTransaction("addAction");
         var actionNumber = this.genActionNumber();
-        var newData = { key: "" + actionNumber, parent: this.selectedAction.key, name: "Action " + actionNumber, actionId: "action" + actionNumber, source: "img/job.jpg" };
+        var newData = new actioncontainer_1.ActionContainer("" + actionNumber, this.selectedAction.key, "Action " + actionNumber, "action" + actionNumber, "img/job.jpg", new etlaction_1.EtlAction("test name"));
+        //let newData = { key: "" + actionNumber, parent: this.selectedAction.key, name: "Action " + actionNumber, actionId: "action" + actionNumber, source: "img/job.jpg" };
         var childNodeData = undefined;
         for (var _i = 0, _a = model.nodeDataArray; _i < _a.length; _i++) {
             var nodeData = _a[_i];
@@ -88,8 +95,9 @@ var FlowchartComponent = (function () {
             }
         }
         model.addNodeData(newData);
-        if (childNodeData != undefined)
+        if (childNodeData != undefined) {
             model.setDataProperty(childNodeData, "parent", "" + actionNumber);
+        }
         model.commitTransaction("addAction");
     };
     FlowchartComponent.prototype.removeAction = function () {
@@ -114,11 +122,15 @@ var FlowchartComponent = (function () {
         return r;
     };
     __decorate([
-        core_3.Output(), 
+        core_3.Input(), 
+        __metadata('design:type', Array)
+    ], FlowchartComponent.prototype, "actionContainerArray", void 0);
+    __decorate([
+        core_4.Output(), 
         __metadata('design:type', core_2.EventEmitter)
     ], FlowchartComponent.prototype, "selected", void 0);
     __decorate([
-        core_3.Output(), 
+        core_4.Output(), 
         __metadata('design:type', core_2.EventEmitter)
     ], FlowchartComponent.prototype, "unselected", void 0);
     FlowchartComponent = __decorate([

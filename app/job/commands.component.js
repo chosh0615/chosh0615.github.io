@@ -12,8 +12,10 @@ var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var core_3 = require('@angular/core');
 var core_4 = require('@angular/core');
+var actioncontainer_1 = require('../model/actioncontainer');
 var CommandsComponent = (function () {
     function CommandsComponent() {
+        this.selectedActionContainer = undefined;
         this.addClicked = new core_2.EventEmitter();
         this.removeClicked = new core_2.EventEmitter();
     }
@@ -23,10 +25,13 @@ var CommandsComponent = (function () {
     CommandsComponent.prototype.onRemoveClick = function () {
         this.removeClicked.emit();
     };
+    CommandsComponent.prototype.onSaveClick = function () {
+        alert(this.selectedActionContainer);
+    };
     __decorate([
         core_4.Input(), 
-        __metadata('design:type', Object)
-    ], CommandsComponent.prototype, "selectedAction", void 0);
+        __metadata('design:type', actioncontainer_1.ActionContainer)
+    ], CommandsComponent.prototype, "selectedActionContainer", void 0);
     __decorate([
         core_3.Output(), 
         __metadata('design:type', core_2.EventEmitter)
@@ -38,7 +43,7 @@ var CommandsComponent = (function () {
     CommandsComponent = __decorate([
         core_1.Component({
             selector: 'commands',
-            template: "\n    <input type=\"button\" value=\"Add action\" class=\"btn btn-secondary\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onAddClick()\"/>\n    <input type=\"button\" value=\"Remove action\" class=\"btn btn-secondary\" *ngIf=\"selectedAction.actionId != undefined\" (click)=\"onRemoveClick()\"/>\n    <input type=\"button\" value=\"Save\" class=\"btn btn-primary\" />\n    <input type=\"button\" value=\"Execute\" class=\"btn btn-primary\" />\n    <input type=\"button\" value=\"Schedule\" class=\"btn btn-primary\" />\n  "
+            template: "\n    <input type=\"button\" value=\"Add action\" class=\"btn btn-secondary\" *ngIf=\"selectedActionContainer != undefined\" (click)=\"onAddClick()\"/>\n    <input type=\"button\" value=\"Remove action\" class=\"btn btn-secondary\" *ngIf=\"selectedActionContainer != undefined\" (click)=\"onRemoveClick()\"/>\n    <input type=\"button\" value=\"Save\" class=\"btn btn-primary\" (click)=\"onSaveClick()\" />\n    <input type=\"button\" value=\"Execute\" class=\"btn btn-primary\" />\n    <input type=\"button\" value=\"Schedule\" class=\"btn btn-primary\" />\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], CommandsComponent);

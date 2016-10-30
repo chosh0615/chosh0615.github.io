@@ -11,21 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var core_3 = require('@angular/core');
+var core_4 = require('@angular/core');
 var property_service_1 = require('../../../service/property.service');
-var construct_1 = require('../../../model/construct');
+var etlaction_1 = require('../../../model/etlaction');
 var ConfigurationsComponent = (function () {
     function ConfigurationsComponent(propertyService) {
         this.propertyService = propertyService;
+        this.selectedAction = undefined;
         this.propertySave = new core_2.EventEmitter();
     }
     ConfigurationsComponent.prototype.ngOnInit = function () {
-        this.constructs = [new construct_1.Construct("Source", "test", "tes", []),
-            new construct_1.Construct("Writer", "test", "test", [])];
     };
     ConfigurationsComponent.prototype.onSave = function () {
-        alert("save");
+        alert(this.selectedAction);
         this.propertySave.emit('test');
     };
+    __decorate([
+        core_4.Input(), 
+        __metadata('design:type', etlaction_1.EtlAction)
+    ], ConfigurationsComponent.prototype, "selectedAction", void 0);
     __decorate([
         core_3.Output(), 
         __metadata('design:type', core_2.EventEmitter)
@@ -33,7 +37,7 @@ var ConfigurationsComponent = (function () {
     ConfigurationsComponent = __decorate([
         core_1.Component({
             selector: 'configurations',
-            template: "\n\t    <div>\n            <form>\n                <input type=\"button\" value=\"Add converter\" class=\"btn btn-secondary\" />\n                <input type=\"button\" value=\"Remove converter\" class=\"btn btn-secondary\" />\n                <construct *ngFor=\"let construct of constructs\" [construct]=\"construct\">\n                </construct>\n\n                <button type=\"button\" class=\"btn btn-default\" (click)=\"onSave()\">Save</button>\n            </form>\n        </div>\n        "
+            template: "\n\t    <div>\n            <form>\n                <input type=\"button\" value=\"Add converter\" class=\"btn btn-secondary\" />\n                <input type=\"button\" value=\"Remove converter\" class=\"btn btn-secondary\" />\n                <div *ngIf=\"selectedAction != undefined\">\n                    <construct *ngFor=\"let construct of selectedAction.constructs\" [construct]=\"construct\">\n                    </construct>\n                </div>\n\n                <button type=\"button\" class=\"btn btn-default\" (click)=\"onSave()\">Save</button>\n            </form>\n        </div>\n        "
         }), 
         __metadata('design:paramtypes', [property_service_1.PropertyService])
     ], ConfigurationsComponent);

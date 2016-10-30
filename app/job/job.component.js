@@ -12,15 +12,18 @@ var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
 var flowchart_component_1 = require('./flowchart.component');
 var property_service_1 = require('../service/property.service');
+var actioncontainer_1 = require('../model/actioncontainer');
+var etlaction_1 = require('../model/etlaction');
 var JobComponent = (function () {
     function JobComponent() {
-        this.selectedAction = {};
+        this.actionContainerArray = [new actioncontainer_1.ActionContainer('1', "", "New Action", "Action001", "img/job.jpg", new etlaction_1.EtlAction("Empty"))];
+        this.selectedActionContainer = undefined;
     }
     JobComponent.prototype.onObjectSelected = function (data) {
-        this.selectedAction = data;
+        this.selectedActionContainer = data;
     };
     JobComponent.prototype.onObjectUnselected = function (data) {
-        this.selectedAction = {};
+        this.selectedActionContainer = undefined;
     };
     JobComponent.prototype.onAddClicked = function () {
         this.flowchartComponent.addAction();
@@ -38,7 +41,7 @@ var JobComponent = (function () {
     JobComponent = __decorate([
         core_1.Component({
             selector: 'job',
-            template: "\n  \t<div>\n  \t\t<commands [selectedAction]=\"selectedAction\"\n  \t\t\t\t(addClicked)=\"onAddClicked()\"\n  \t\t\t\t(removeClicked)=\"onRemoveClicked()\"></commands>\n  \t</div>\n  \t<div>\n\t    <flowchart (selected)=\"onObjectSelected($event)\"\n\t    \t\t\t(unselected)=\"onObjectUnselected($event)\"></flowchart>\n\t    <action (actionSave)=\"onSave($event)\" \n\t    \t\t\t[selectedAction]=\"selectedAction\"></action>\n    </div>\n  ",
+            template: "\n  \t<div>\n  \t\t<commands [selectedActionContainer]=\"selectedActionContainer\"\n  \t\t\t\t(addClicked)=\"onAddClicked()\"\n  \t\t\t\t(removeClicked)=\"onRemoveClicked()\"></commands>\n  \t</div>\n  \t<div>\n\t    <flowchart (selected)=\"onObjectSelected($event)\"\n\t    \t\t\t(unselected)=\"onObjectUnselected($event)\"\n\t    \t\t\t[actionContainerArray]=\"actionContainerArray\"></flowchart>\n\t    <action (actionSave)=\"onSave($event)\" \n\t    \t\t\t[selectedAction]=\"selectedActionContainer == undefined ? undefined : selectedActionContainer.action\"></action>\n    </div>\n  ",
             providers: [property_service_1.PropertyService]
         }), 
         __metadata('design:paramtypes', [])

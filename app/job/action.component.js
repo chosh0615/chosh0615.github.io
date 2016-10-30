@@ -20,13 +20,13 @@ var ActionComponent = (function () {
         this.actionSave.emit('test');
     };
     __decorate([
-        core_3.Output(), 
-        __metadata('design:type', core_2.EventEmitter)
-    ], ActionComponent.prototype, "actionSave", void 0);
-    __decorate([
         core_4.Input(), 
         __metadata('design:type', Object)
     ], ActionComponent.prototype, "selectedAction", void 0);
+    __decorate([
+        core_3.Output(), 
+        __metadata('design:type', core_2.EventEmitter)
+    ], ActionComponent.prototype, "actionSave", void 0);
     ActionComponent = __decorate([
         core_1.Component({
             selector: 'action',

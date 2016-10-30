@@ -2,10 +2,15 @@ import { Action } from './action';
 import { Construct } from './construct';
 
 export class EtlAction extends Action {
-  constructor(
-  	public name: string,
-    public constructs: Construct[]
-    ) {
-    	super(name);
-    }
+
+	public constructs: Construct[];
+
+	constructor(
+		public name: string
+	) {
+		super(name);
+
+		this.constructs = [new Construct("Source", "test", "tes", []),
+                      new Construct("Writer", "test", "test", [])];
+	}
 }

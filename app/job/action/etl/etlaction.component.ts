@@ -7,6 +7,7 @@ import { PropertyService }      from '../../../service/property.service';
 import { Construct }            from '../../../model/construct';
 import { Property }             from '../../../model/property';
 import { Action }               from '../../../model/action';
+import { EtlAction }               from '../../../model/etlaction';
 
 @Component({
     selector: 'etlaction',
@@ -16,7 +17,7 @@ import { Action }               from '../../../model/action';
                 <h3>Action configuration</h3>
             </div>
             <div style="width:100%; display:table-row;">
-                <configurations style="width:100%; height:100%; overflow-y:scroll; float:left;">
+                <configurations [selectedAction]="selectedAction" style="width:100%; height:100%; overflow-y:scroll; float:left;">
                 </configurations>
                 <!--
                 <constructs style="width:40%; height:100%; background-color:#888888; overflow-y:scroll; float:left;">
@@ -31,9 +32,9 @@ import { Action }               from '../../../model/action';
         `
 })
 export class EtlActionComponent {
-	@Output() propertySave: EventEmitter<String> = new EventEmitter<String>();
 
-	@Input() selectedAction : Action;
+    @Input() selectedAction : EtlAction;
+	@Output() propertySave: EventEmitter<String> = new EventEmitter<String>();
 
     constructor() {
         

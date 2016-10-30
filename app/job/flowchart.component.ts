@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { Input } from '@angular/core';
 import { Output } from '@angular/core';
-import { AfterViewInit } from '@angular/core';
+import { OnInit } from '@angular/core';
+
+
+import { ActionContainer } from '../model/actioncontainer'
+import { EtlAction } from '../model/etlaction'
 
 declare var go : any;
 
@@ -12,13 +17,15 @@ declare var go : any;
     </div>
   `
 })
-export class FlowchartComponent implements AfterViewInit {
+export class FlowchartComponent implements OnInit {
 
   goObj : any;
   myDiagram;
+
   selectedAction : any = {};
   actionNumbers: number = 1;
 
+  @Input() actionContainerArray : ActionContainer[];
   @Output() selected: EventEmitter<any> = new EventEmitter();
   @Output() unselected: EventEmitter<any> = new EventEmitter();
 
@@ -32,7 +39,7 @@ export class FlowchartComponent implements AfterViewInit {
 		this.unselected.emit();
 	}
 
-  	ngAfterViewInit() {
+  	ngOnInit() {
 	  	var myself = this;
 		this.goObj = go.GraphObject.make;
 		this.myDiagram =
@@ -88,10 +95,13 @@ export class FlowchartComponent implements AfterViewInit {
 	   	  );
 
 	    var model = this.goObj(go.TreeModel);
-	    model.nodeDataArray =
+	    model.nodeDataArray = this.actionContainerArray;
+	    /*
 	    [
-	      { key: "1",              name: "Action 1", actionId:"action001",   source: "img/job.jpg" }
+	      new ActionContainer('1', "" , "New Action", "Action001", "img/job.jpg")
+	      //{ key: "1",              name: "Action 1", actionId:"action001",   source: "img/job.jpg" }
 	    ];
+	    */
 	    this.myDiagram.model = model;
 
 	    /*
@@ -108,7 +118,9 @@ export class FlowchartComponent implements AfterViewInit {
 		let model = this.myDiagram.model;
 		model.startTransaction("addAction");
 		let actionNumber = this.genActionNumber();
-		let newData = { key: "" + actionNumber, parent: this.selectedAction.key, name: "Action " + actionNumber, actionId: "action" + actionNumber, source: "img/job.jpg" };
+		let newData = new ActionContainer ( "" + actionNumber, this.selectedAction.key, "Action " + actionNumber, "action" + actionNumber, "img/job.jpg" , new EtlAction("test name"));
+
+		//let newData = { key: "" + actionNumber, parent: this.selectedAction.key, name: "Action " + actionNumber, actionId: "action" + actionNumber, source: "img/job.jpg" };
 		
 		let childNodeData = undefined;
 		for(let nodeData of model.nodeDataArray) {
@@ -119,8 +131,9 @@ export class FlowchartComponent implements AfterViewInit {
 		}
 
 		model.addNodeData( newData );
-		if(childNodeData != undefined) 
+		if(childNodeData != undefined) {
 			model.setDataProperty(childNodeData, "parent", "" + actionNumber);
+		}
 		model.commitTransaction("addAction");
 	}
 

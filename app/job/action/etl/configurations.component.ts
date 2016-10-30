@@ -6,6 +6,7 @@ import { OnInit } from '@angular/core';
 import { PropertyService } from '../../../service/property.service';
 import { Construct } from       '../../../model/construct';
 import { Property } from        '../../../model/property';
+import { EtlAction } from        '../../../model/etlaction';
 
 @Component({
     selector: 'configurations',
@@ -14,8 +15,10 @@ import { Property } from        '../../../model/property';
             <form>
                 <input type="button" value="Add converter" class="btn btn-secondary" />
                 <input type="button" value="Remove converter" class="btn btn-secondary" />
-                <construct *ngFor="let construct of constructs" [construct]="construct">
-                </construct>
+                <div *ngIf="selectedAction != undefined">
+                    <construct *ngFor="let construct of selectedAction.constructs" [construct]="construct">
+                    </construct>
+                </div>
 
                 <button type="button" class="btn btn-default" (click)="onSave()">Save</button>
             </form>
@@ -24,20 +27,18 @@ import { Property } from        '../../../model/property';
 })
 export class ConfigurationsComponent implements OnInit {
 
+    @Input() selectedAction: EtlAction = undefined;
 	@Output() propertySave: EventEmitter<String> = new EventEmitter<String>();
-
-    constructs: Construct[];
 
     constructor(private propertyService: PropertyService) {
     }
 
     ngOnInit() {
-        this.constructs = [new Construct("Source", "test", "tes", []),
-                      new Construct("Writer", "test", "test", [])];
+        
     }
 
 	onSave() {
-		alert("save");
+		alert(this.selectedAction);
 		this.propertySave.emit('test');
 	}
 }

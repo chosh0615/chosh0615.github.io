@@ -15,9 +15,8 @@ import { OnInit } from '@angular/core';
 })
 export class ActionComponent {
 
-    @Output() actionSave: EventEmitter<String> = new EventEmitter<String>();
-
     @Input() selectedAction;
+    @Output() actionSave: EventEmitter<String> = new EventEmitter<String>();
 
     onSave() {
         this.actionSave.emit('test');
